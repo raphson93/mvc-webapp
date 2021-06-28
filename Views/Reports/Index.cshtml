@@ -1,0 +1,49 @@
+﻿@model IEnumerable<mvc_webapp.Models.Report>
+@{
+    ViewData["Title"] = "More Details";
+    Context.Session.TryGetValue("JWToken", out var tokenByte);
+    
+    var userSession = System.Text.Encoding.UTF8.GetString(tokenByte);
+    
+}
+
+<script type="text/javascript" src="~/js/report.js"></script>
+<script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+
+<div class="row">
+    <div class="col-md">
+        <div class="section-box">
+            <div class="section-header">
+                <h4 class="section-header-title">Detail Log</h4>
+            </div>
+            <div class="section-body">
+                <table class="table table-bordered table-responsive-sm" id="tblReport">
+                    <thead>
+                        <tr>
+                            <th data-priority="1" scope="col">MACH_ID</th>
+                            <th data-priority="2" scope="col">DATE</th>
+                            <th scope="col">ARR_TIME</th>
+                            <th scope="col">PROB_CODE</th>
+                            <th scope="col">DESC</th>
+                            <th scope="col">FLM_SLM</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function onLoad() {
+
+        $(document).ready(function () {
+            report = new Report();
+            report.init();
+        });
+        localStorage.setItem("user", "@User.Identity.Name");
+        localStorage.setItem("JWToken", "@userSession");
+    }
+
+
+</script>

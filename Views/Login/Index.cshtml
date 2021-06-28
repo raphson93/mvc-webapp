@@ -1,0 +1,105 @@
+﻿@model mvc_webapp.Models.Login
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/Login.cshtml";
+    var isSessionAvailable = Context.Session.TryGetValue("Expired", out var sessionEnd);
+    var DtExpired = default(DateTime);
+
+    if (isSessionAvailable)
+    {
+        var userSessionExpiry = System.Text.Encoding.UTF8.GetString(sessionEnd);
+        DateTime.TryParse(userSessionExpiry, out DtExpired);
+    }
+
+}
+
+
+<style>
+    .center {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+</style>
+
+<div class="fa-5x center" style="padding-top:10px">
+    <i class="fab fa-aws"></i>
+</div>
+<!--<div style="padding-top:50px;"></div>-->
+<!--<div style="padding-top:50px;"></div>-->
+<div style="padding-top: 30px;">
+    @if (User.Identity.IsAuthenticated && isSessionAvailable && DtExpired > DateTime.Now)
+    {
+        <div class="row">
+            You are Logged in as
+            <span style="font-size:large;color:forestgreen;">
+                @User.Identity.Name
+            </span>
+        </div>
+        <div class="row" style="padding-top:50px;">
+            @Html.ActionLink("Log Off", "Index",
+            "Login", null, new { @class = "btn btn-primary btn-lg rph-login-button" })
+        </div>
+    }
+    else
+    {
+        <div class="row center">
+
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                @if (!ViewData.ModelState.IsValid)
+                {
+                    <div class="alert alert-warning center">
+                        @Html.ValidationMessage("Error")
+                    </div>
+                }
+                
+                <!--<h2>Rototype International<br /> Call Log System</h2>-->
+                <script>
+                    $(document).ready(function () {
+                        $('valLogin').toast('test');
+                    });
+                </script>
+                <div class="center">
+                    @using (Html.BeginForm("Login", "Login", FormMethod.Post, new { role = "form" }))
+                    {
+                        <div>
+                            @Html.AntiForgeryToken()
+                            <div>
+                                <label>
+                                    <i class="fa fa-user"></i>
+                                    User ID
+                                </label>
+                                <br />
+                            </div>
+                            <div>
+                                @Html.TextBoxFor(m => m.Username,
+                                new { @class = "form-control txtbox", @required = "require"})
+                            </div>
+                            <div style="padding-top:20px;"></div>
+                            <div>
+                                <label>
+                                    <i class="fa fa-unlock-alt"></i>
+                                    Password
+                                </label>
+                                <br />
+                            </div>
+                            <div>
+                                @Html.PasswordFor(m => m.Password,
+                                new { @class = "form-control txtbox", @required = "require", @autocomplete = "off" })
+                            </div>
+                            <br />
+                        </div>
+                        <div class="padding-left:35%;width:40%;">
+                            <div class="padding-top:40px;">
+                                <input class="btn btn-success btn-lg rph-login-button"
+                                       id="valLogin" type="submit" value="Login" />
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+</div>
