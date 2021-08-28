@@ -158,25 +158,49 @@ Count: 3
 BuildError: CS0579: Duplicate 'Microsoft.AspNetCore.Mvc.ApplicationParts.ProvideApplicationPartFactoryAttribute' attribute
 Count: 3
 
-BuildError: CS0111: Type 'Views__ViewImports' already defines a member called 'ExecuteAsync' with the same parameter types
-Count: 3
-
-BuildError: CS0111: Type 'Views__ViewStart' already defines a member called 'ExecuteAsync' with the same parameter types
-Count: 3
-
 BuildError: CS0111: Type 'Views_Login_Index' already defines a member called 'ExecuteAsync' with the same parameter types
 Count: 2
 
-BuildError: CS0111: Type 'Views_Reports_Privacy' already defines a member called 'ExecuteAsync' with the same parameter types
+BuildError: CS0111: Type 'Views_HelloWorld_Welcome' already defines a member called 'ExecuteAsync' with the same parameter types
+Count: 3
+
+BuildError: CS0111: Type 'Views_HelloWorld_Index' already defines a member called 'ExecuteAsync' with the same parameter types
 Count: 3
 
 BuildError: CS0111: Type 'Views_Shared_Error' already defines a member called 'ExecuteAsync' with the same parameter types
 Count: 3
 
+BuildError: CS0111: Type 'Views_Home_Index' already defines a member called 'ExecuteAsync' with the same parameter types
+Count: 3
+
 BuildError: CS0111: Type 'Views_Reports_Index' already defines a member called 'ExecuteAsync' with the same parameter types
 Count: 3
 
+BuildError: CS0111: Type 'Views__ViewImports' already defines a member called 'ExecuteAsync' with the same parameter types
+Count: 3
+
+BuildError: CS0111: Type 'Views_Reports_Delete' already defines a member called 'ExecuteAsync' with the same parameter types
+Count: 3
+
+BuildError: CS0111: Type 'Views_Reports_Details' already defines a member called 'ExecuteAsync' with the same parameter types
+Count: 3
+
+BuildError: CS0111: Type 'Views_Account_Index' already defines a member called 'ExecuteAsync' with the same parameter types
+Count: 2
+
 BuildError: CS0111: Type 'Views_Shared__ValidationScriptsPartial' already defines a member called 'ExecuteAsync' with the same parameter types
+Count: 3
+
+BuildError: CS0111: Type 'Views_Shared__Layout' already defines a member called 'ExecuteAsync' with the same parameter types
+Count: 3
+
+BuildError: CS0111: Type 'Views__ViewStart' already defines a member called 'ExecuteAsync' with the same parameter types
+Count: 3
+
+BuildError: CS0111: Type 'Views_Reports_Privacy' already defines a member called 'ExecuteAsync' with the same parameter types
+Count: 3
+
+BuildError: CS0111: Type 'Views_Reports_Edit' already defines a member called 'ExecuteAsync' with the same parameter types
 Count: 3
 
 BuildError: CS0111: Type 'Views_Reports_Create' already defines a member called 'ExecuteAsync' with the same parameter types
@@ -185,46 +209,19 @@ Count: 3
 BuildError: CS0111: Type 'Views_Shared_Login' already defines a member called 'ExecuteAsync' with the same parameter types
 Count: 2
 
-BuildError: CS0111: Type 'Views_HelloWorld_Index' already defines a member called 'ExecuteAsync' with the same parameter types
-Count: 3
-
-BuildError: CS0111: Type 'Views_Shared__Layout' already defines a member called 'ExecuteAsync' with the same parameter types
-Count: 3
-
-BuildError: CS0111: Type 'Views_Reports_Delete' already defines a member called 'ExecuteAsync' with the same parameter types
-Count: 3
-
-BuildError: CS0111: Type 'Views_Account_Index' already defines a member called 'ExecuteAsync' with the same parameter types
-Count: 2
-
-BuildError: CS0111: Type 'Views_HelloWorld_Welcome' already defines a member called 'ExecuteAsync' with the same parameter types
-Count: 3
-
-BuildError: CS0111: Type 'Views_Home_Index' already defines a member called 'ExecuteAsync' with the same parameter types
-Count: 3
-
-BuildError: CS0111: Type 'Views_Reports_Details' already defines a member called 'ExecuteAsync' with the same parameter types
-Count: 3
-
-BuildError: CS0111: Type 'Views_Reports_Edit' already defines a member called 'ExecuteAsync' with the same parameter types
-Count: 3
-
-BuildError: CS0229: Ambiguity between 'Views_Reports_Create.__backed__tagHelperScopeManager' and 'Views_Reports_Create.__backed__tagHelperScopeManager'
-Count: 12
-
 BuildError: CS0229: Ambiguity between 'Views_Reports_Edit.__backed__tagHelperScopeManager' and 'Views_Reports_Edit.__backed__tagHelperScopeManager'
 Count: 12
 
-BuildError: CS0229: Ambiguity between 'Views_Account_Index.__backed__tagHelperScopeManager' and 'Views_Account_Index.__backed__tagHelperScopeManager'
+BuildError: CS0229: Ambiguity between 'Views_Shared_Login.__backed__tagHelperScopeManager' and 'Views_Shared_Login.__backed__tagHelperScopeManager'
 Count: 9
-
-BuildError: CS0229: Ambiguity between 'Views_Shared__ValidationScriptsPartial.__backed__tagHelperScopeManager' and 'Views_Shared__ValidationScriptsPartial.__backed__tagHelperScopeManager'
-Count: 12
 
 BuildError: CS0229: Ambiguity between 'Views_Reports_Index.__backed__tagHelperScopeManager' and 'Views_Reports_Index.__backed__tagHelperScopeManager'
 Count: 12
 
-BuildError: CS0229: Ambiguity between 'Views_Shared_Login.__backed__tagHelperScopeManager' and 'Views_Shared_Login.__backed__tagHelperScopeManager'
+BuildError: CS0229: Ambiguity between 'Views_Shared__ValidationScriptsPartial.__backed__tagHelperScopeManager' and 'Views_Shared__ValidationScriptsPartial.__backed__tagHelperScopeManager'
+Count: 12
+
+BuildError: CS0229: Ambiguity between 'Views_Account_Index.__backed__tagHelperScopeManager' and 'Views_Account_Index.__backed__tagHelperScopeManager'
 Count: 9
 
 BuildError: CS0229: Ambiguity between 'Views_Reports_Details.__backed__tagHelperScopeManager' and 'Views_Reports_Details.__backed__tagHelperScopeManager'
@@ -233,32 +230,11 @@ Count: 12
 BuildError: CS0229: Ambiguity between 'Views_Reports_Delete.__backed__tagHelperScopeManager' and 'Views_Reports_Delete.__backed__tagHelperScopeManager'
 Count: 12
 
+BuildError: CS0229: Ambiguity between 'Views_Reports_Create.__backed__tagHelperScopeManager' and 'Views_Reports_Create.__backed__tagHelperScopeManager'
+Count: 12
+
 BuildError: CS0229: Ambiguity between 'Views_Shared__Layout.__backed__tagHelperScopeManager' and 'Views_Shared__Layout.__backed__tagHelperScopeManager'
 Count: 12
-
-BuildError: CS0229: Ambiguity between 'Views_Login_Index.Html' and 'Views_Login_Index.Html'
-Count: 18
-
-BuildError: CS0229: Ambiguity between 'Views_Reports_Delete.Html' and 'Views_Reports_Delete.Html'
-Count: 72
-
-BuildError: CS0229: Ambiguity between 'Views_Reports_Delete.__tagHelperExecutionContext' and 'Views_Reports_Delete.__tagHelperExecutionContext'
-Count: 36
-
-BuildError: CS0229: Ambiguity between 'Views_Reports_Delete.__tagHelperScopeManager' and 'Views_Reports_Delete.__tagHelperScopeManager'
-Count: 8
-
-BuildError: CS0229: Ambiguity between 'Views_Reports_Delete.__Microsoft_AspNetCore_Mvc_TagHelpers_FormTagHelper' and 'Views_Reports_Delete.__Microsoft_AspNetCore_Mvc_TagHelpers_FormTagHelper'
-Count: 12
-
-BuildError: CS0229: Ambiguity between 'Views_Reports_Delete.__Microsoft_AspNetCore_Mvc_TagHelpers_RenderAtEndOfFormTagHelper' and 'Views_Reports_Delete.__Microsoft_AspNetCore_Mvc_TagHelpers_RenderAtEndOfFormTagHelper'
-Count: 8
-
-BuildError: CS0229: Ambiguity between 'Views_Reports_Delete.__tagHelperAttribute_2' and 'Views_Reports_Delete.__tagHelperAttribute_2'
-Count: 8
-
-BuildError: CS0229: Ambiguity between 'Views_Reports_Delete.__tagHelperRunner' and 'Views_Reports_Delete.__tagHelperRunner'
-Count: 4
 
 BuildError: CS0229: Ambiguity between 'Views_Account_Index.__tagHelperExecutionContext' and 'Views_Account_Index.__tagHelperExecutionContext'
 Count: 30
@@ -281,22 +257,25 @@ Count: 6
 BuildError: CS0229: Ambiguity between 'Views_Account_Index.__tagHelperRunner' and 'Views_Account_Index.__tagHelperRunner'
 Count: 3
 
-BuildError: CS0229: Ambiguity between 'Views_Reports_Index.__tagHelperExecutionContext' and 'Views_Reports_Index.__tagHelperExecutionContext'
-Count: 36
+BuildError: CS0229: Ambiguity between 'Views_Login_Index.Html' and 'Views_Login_Index.Html'
+Count: 18
 
-BuildError: CS0229: Ambiguity between 'Views_Reports_Index.__tagHelperScopeManager' and 'Views_Reports_Index.__tagHelperScopeManager'
-Count: 8
+BuildError: CS0229: Ambiguity between 'Views_Shared__ValidationScriptsPartial.__tagHelperExecutionContext' and 'Views_Shared__ValidationScriptsPartial.__tagHelperExecutionContext'
+Count: 64
 
-BuildError: CS0229: Ambiguity between 'Views_Reports_Index.__Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper' and 'Views_Reports_Index.__Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper'
-Count: 8
+BuildError: CS0229: Ambiguity between 'Views_Shared__ValidationScriptsPartial.__tagHelperScopeManager' and 'Views_Shared__ValidationScriptsPartial.__tagHelperScopeManager'
+Count: 16
 
-BuildError: CS0229: Ambiguity between 'Views_Reports_Index.__tagHelperAttribute_0' and 'Views_Reports_Index.__tagHelperAttribute_0'
+BuildError: CS0229: Ambiguity between 'Views_Shared__ValidationScriptsPartial.__Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper' and 'Views_Shared__ValidationScriptsPartial.__Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper'
+Count: 16
+
+BuildError: CS0229: Ambiguity between 'Views_Shared__ValidationScriptsPartial.__tagHelperAttribute_0' and 'Views_Shared__ValidationScriptsPartial.__tagHelperAttribute_0'
 Count: 4
 
-BuildError: CS0229: Ambiguity between 'Views_Reports_Index.__tagHelperAttribute_1' and 'Views_Reports_Index.__tagHelperAttribute_1'
-Count: 4
+BuildError: CS0229: Ambiguity between 'Views_Shared__ValidationScriptsPartial.__tagHelperRunner' and 'Views_Shared__ValidationScriptsPartial.__tagHelperRunner'
+Count: 8
 
-BuildError: CS0229: Ambiguity between 'Views_Reports_Index.__tagHelperRunner' and 'Views_Reports_Index.__tagHelperRunner'
+BuildError: CS0229: Ambiguity between 'Views_Shared__ValidationScriptsPartial.__tagHelperAttribute_1' and 'Views_Shared__ValidationScriptsPartial.__tagHelperAttribute_1'
 Count: 4
 
 BuildError: CS0229: Ambiguity between 'Views_Reports_Details.Html' and 'Views_Reports_Details.Html'
@@ -323,22 +302,43 @@ Count: 8
 BuildError: CS0229: Ambiguity between 'Views_Reports_Details.__tagHelperAttribute_1' and 'Views_Reports_Details.__tagHelperAttribute_1'
 Count: 8
 
-BuildError: CS0229: Ambiguity between 'Views_Shared__ValidationScriptsPartial.__tagHelperExecutionContext' and 'Views_Shared__ValidationScriptsPartial.__tagHelperExecutionContext'
-Count: 64
+BuildError: CS0229: Ambiguity between 'Views_Reports_Delete.Html' and 'Views_Reports_Delete.Html'
+Count: 72
 
-BuildError: CS0229: Ambiguity between 'Views_Shared__ValidationScriptsPartial.__tagHelperScopeManager' and 'Views_Shared__ValidationScriptsPartial.__tagHelperScopeManager'
-Count: 16
+BuildError: CS0229: Ambiguity between 'Views_Reports_Delete.__tagHelperExecutionContext' and 'Views_Reports_Delete.__tagHelperExecutionContext'
+Count: 36
 
-BuildError: CS0229: Ambiguity between 'Views_Shared__ValidationScriptsPartial.__Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper' and 'Views_Shared__ValidationScriptsPartial.__Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper'
-Count: 16
-
-BuildError: CS0229: Ambiguity between 'Views_Shared__ValidationScriptsPartial.__tagHelperAttribute_0' and 'Views_Shared__ValidationScriptsPartial.__tagHelperAttribute_0'
-Count: 4
-
-BuildError: CS0229: Ambiguity between 'Views_Shared__ValidationScriptsPartial.__tagHelperRunner' and 'Views_Shared__ValidationScriptsPartial.__tagHelperRunner'
+BuildError: CS0229: Ambiguity between 'Views_Reports_Delete.__tagHelperScopeManager' and 'Views_Reports_Delete.__tagHelperScopeManager'
 Count: 8
 
-BuildError: CS0229: Ambiguity between 'Views_Shared__ValidationScriptsPartial.__tagHelperAttribute_1' and 'Views_Shared__ValidationScriptsPartial.__tagHelperAttribute_1'
+BuildError: CS0229: Ambiguity between 'Views_Reports_Delete.__Microsoft_AspNetCore_Mvc_TagHelpers_FormTagHelper' and 'Views_Reports_Delete.__Microsoft_AspNetCore_Mvc_TagHelpers_FormTagHelper'
+Count: 12
+
+BuildError: CS0229: Ambiguity between 'Views_Reports_Delete.__Microsoft_AspNetCore_Mvc_TagHelpers_RenderAtEndOfFormTagHelper' and 'Views_Reports_Delete.__Microsoft_AspNetCore_Mvc_TagHelpers_RenderAtEndOfFormTagHelper'
+Count: 8
+
+BuildError: CS0229: Ambiguity between 'Views_Reports_Delete.__tagHelperAttribute_2' and 'Views_Reports_Delete.__tagHelperAttribute_2'
+Count: 8
+
+BuildError: CS0229: Ambiguity between 'Views_Reports_Delete.__tagHelperRunner' and 'Views_Reports_Delete.__tagHelperRunner'
+Count: 4
+
+BuildError: CS0229: Ambiguity between 'Views_Reports_Index.__tagHelperExecutionContext' and 'Views_Reports_Index.__tagHelperExecutionContext'
+Count: 36
+
+BuildError: CS0229: Ambiguity between 'Views_Reports_Index.__tagHelperScopeManager' and 'Views_Reports_Index.__tagHelperScopeManager'
+Count: 8
+
+BuildError: CS0229: Ambiguity between 'Views_Reports_Index.__Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper' and 'Views_Reports_Index.__Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper'
+Count: 8
+
+BuildError: CS0229: Ambiguity between 'Views_Reports_Index.__tagHelperAttribute_0' and 'Views_Reports_Index.__tagHelperAttribute_0'
+Count: 4
+
+BuildError: CS0229: Ambiguity between 'Views_Reports_Index.__tagHelperAttribute_1' and 'Views_Reports_Index.__tagHelperAttribute_1'
+Count: 4
+
+BuildError: CS0229: Ambiguity between 'Views_Reports_Index.__tagHelperRunner' and 'Views_Reports_Index.__tagHelperRunner'
 Count: 4
 
 BuildError: CS0229: Ambiguity between 'Views_Shared_Login.__tagHelperExecutionContext' and 'Views_Shared_Login.__tagHelperExecutionContext'
