@@ -87,7 +87,9 @@
                         || data["machId"] === "58E5" || data["machId"] === "5818" || data["machId"] === "5822" || data["machId"] === "585C" || data["machId"] === "585D"
                         || data["machId"] === "58D8" || data["machId"] === "5841" || data["machId"] === "5843" || data["machId"] === "5820" || data["machId"] === "5824"
                         || data["machId"] === "5832" || data["machId"] === "5849" || data["machId"] === "5884" || data["machId"] === "4D90" || data["machId"] === "4D91"
-                        || data["machId"] === "5825" || data["machId"] === "4D92" || data["machId"] === "4D93") {
+                        || data["machId"] === "5825" || data["machId"] === "4D92" || data["machId"] === "4D93" || data["machId"] === "581A" || data["machId"] === "4C8B"
+                        || data["machId"] === "5851" || data["machId"] === "67287" || data["machId"] === "5858" || data["machId"] === "5855" || data["machId"] === "67282"
+                        || data["machId"] === "67286") {
                             $(row).addClass('vip-color');
                     }
                     else
