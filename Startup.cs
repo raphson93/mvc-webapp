@@ -28,6 +28,10 @@ namespace mvc_webapp
         {
             //services.AddControllersWithViews();
             //services.AddMvc();
+
+            //04/04/2022 - Configure Data Proctection
+            services.AddDataProtection();
+            
             services.AddSession(options =>
             {
                 options.IdleTimeout = TimeSpan.FromHours(1);
