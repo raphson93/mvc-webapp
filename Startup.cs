@@ -8,8 +8,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.DataProtection;
 using mvc_webapp.Models;
 using System;
+using System.IO;
 using System.Text;
 
 namespace mvc_webapp
@@ -30,8 +32,14 @@ namespace mvc_webapp
             //services.AddMvc();
 
             //04/04/2022 - Configure Data Proctection
-            services.AddDataProtection();
+            //services.AddDataProtection();
             
+            //03/05/2022 - Add key storage UNC path *Local*
+            //services.AddDataProtection().PersistKeysToFileSystem(new DirectoryInfo(@"C:\Users\Vincent\AppData\Local\ASP.NET\DataProtection-Keys\"));
+
+            //03/05/2022 - Add key storage UNC path *Server*
+            services.AddDataProtection().PersistKeysToFileSystem(new DirectoryInfo(@"/home/webapp/.aspnet/DataProtection-Keys/"));
+
             services.AddSession(options =>
             {
                 options.IdleTimeout = TimeSpan.FromHours(1);
