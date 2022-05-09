@@ -24,7 +24,6 @@ namespace mvc_webapp
 
         private static string GetHash(HashAlgorithm hashAlgorithm, string input)
         {
-
             // Convert the input string to a byte array and compute the hash.
             byte[] data = hashAlgorithm.ComputeHash(Encoding.UTF8.GetBytes(input));
 
@@ -37,6 +36,7 @@ namespace mvc_webapp
             for (int i = 0; i < data.Length; i++)
             {
                 sBuilder.Append(data[i].ToString("x2"));
+                
             }
 
             // Return the hexadecimal string.
@@ -56,60 +56,67 @@ namespace mvc_webapp
 
         public (string, DateTime?) LoginUser(Login login)
         {
+
+            var JWToken = new JwtSecurityToken();
+
             using (var sha256hash = SHA256.Create())
             {
-                var dbUser = _context.Login.FirstOrDefault(x => x.Password == GetHash(sha256hash, login.Password.Trim()));
-
-                //Get user details for the user who is trying to login
-
-                //Authenticate User, Check if it’s a registered user in Database
-                if (dbUser == null)
+                if(!String.IsNullOrEmpty(login.Password))
                 {
-                    return (null, null);
+                    var dbUser = _context.Login.FirstOrDefault(x => x.Password == GetHash(sha256hash, login.Password));
+
+                    //Get user details for the user who is trying to login
+
+                    //Authenticate User, Check if it’s a registered user in Database
+                    if (dbUser == null)
+                    {
+                        return (null, null);
+                    }
+
+                    if (dbUser.SessionEnd.HasValue && dbUser.SessionEnd.Value > DateTime.Now)
+                    {
+                        return (dbUser.SessionKey, dbUser.SessionEnd.Value);
+                    }
+
+                    //convert utc to local timezone
+                    /*var date = DateTime.Now.ToString();
+                    DateTime convertedDate = DateTime.SpecifyKind(
+                        DateTime.Parse(date),
+                        DateTimeKind.Utc);
+                    DateTime dt = convertedDate.ToLocalTime();*/
+
+                    var dt = DateTime.Now;
+
+                    //Authentication successful, Issue Token with user credentials
+                    //Provide the security key which was given in the JWToken configuration in Startup.cs
+                    var key = Encoding.ASCII.GetBytes
+                              ("YourKey-2374-OFFKDI940NG7:56753253-tyuw-5769-0921-kfirox29zoxv");
+                    //Generate Token for user 
+                    JWToken = new JwtSecurityToken(
+                        //issuer: "http://localhost:5001/",
+                        //audience: "http://localhost:5001/",
+                        issuer: "https://rihk-clsv2.ap-southeast-1.elasticbeanstalk.com/",
+                        audience: "https://rihk-clsv2.ap-southeast-1.elasticbeanstalk.com/",
+                        claims: GetUserClaims(dbUser),
+                        notBefore: new DateTimeOffset(dt).DateTime,
+                        expires: new DateTimeOffset(dt.AddHours(1)).DateTime,
+                        //expires: new DateTimeOffset(dt.AddMinutes(2)).DateTime,
+                        //Using HS256 Algorithm to encrypt Token
+                        signingCredentials: new SigningCredentials(new SymmetricSecurityKey(key),
+                                            SecurityAlgorithms.HmacSha256Signature)
+                    );
+
+                    token = new JwtSecurityTokenHandler().WriteToken(JWToken);
+
+                    dbUser.LastLogin = DateTime.Now.ToLocalTime();
+                    dbUser.LoginCounter += 1;
+                    dbUser.SessionKey = token;
+                    dbUser.SessionStart = JWToken.ValidFrom.ToLocalTime();
+                    dbUser.SessionEnd = JWToken.ValidTo.ToLocalTime();
+                    _context.Update(dbUser);
+                    _context.SaveChanges();
+                    
                 }
-
-                if (dbUser.SessionEnd.HasValue && dbUser.SessionEnd.Value > DateTime.Now)
-                {
-                    return (dbUser.SessionKey, dbUser.SessionEnd.Value);
-                }
-
-                //convert utc to local timezone
-                /*var date = DateTime.Now.ToString();
-                DateTime convertedDate = DateTime.SpecifyKind(
-                    DateTime.Parse(date),
-                    DateTimeKind.Utc);
-                DateTime dt = convertedDate.ToLocalTime();*/
-
-                var dt = DateTime.Now;
-
-                //Authentication successful, Issue Token with user credentials
-                //Provide the security key which was given in the JWToken configuration in Startup.cs
-                var key = Encoding.ASCII.GetBytes
-                          ("YourKey-2374-OFFKDI940NG7:56753253-tyuw-5769-0921-kfirox29zoxv");
-                //Generate Token for user 
-                var JWToken = new JwtSecurityToken(
-                    //issuer: "http://localhost:5001/",
-                    //audience: "http://localhost:5001/",
-                    issuer: "https://rihk-clsv2.ap-southeast-1.elasticbeanstalk.com/",
-                    audience: "https://rihk-clsv2.ap-southeast-1.elasticbeanstalk.com/",
-                    claims: GetUserClaims(dbUser),
-                    notBefore: new DateTimeOffset(dt).DateTime,
-                    expires: new DateTimeOffset(dt.AddHours(1)).DateTime,
-                    //expires: new DateTimeOffset(dt.AddMinutes(2)).DateTime,
-                    //Using HS256 Algorithm to encrypt Token
-                    signingCredentials: new SigningCredentials(new SymmetricSecurityKey(key),
-                                        SecurityAlgorithms.HmacSha256Signature)
-                );
-
-                token = new JwtSecurityTokenHandler().WriteToken(JWToken);
-
-                dbUser.LastLogin = DateTime.Now.ToLocalTime();
-                dbUser.LoginCounter += 1;
-                dbUser.SessionKey = token;
-                dbUser.SessionStart = JWToken.ValidFrom.ToLocalTime();
-                dbUser.SessionEnd = JWToken.ValidTo.ToLocalTime();
-                _context.Update(dbUser);
-                _context.SaveChanges();
                 return (token, JWToken.ValidTo.ToLocalTime());
             }
         }
