@@ -21,6 +21,7 @@ namespace mvc_webapp.Controllers
             _context = context;
         }
 
+        [ResponseCache(Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Index()
         {
             var claim = HttpContext.User.Claims;
@@ -35,9 +36,26 @@ namespace mvc_webapp.Controllers
             return View();
         }
 
+        /*[ResponseCache(Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Privacy()
         {
             return View();
+        }*/
+
+        public IActionResult Privacy()
+        {
+            var claim = HttpContext.User.Claims;
+            var sessionToken = HttpContext.Session.GetString("JWToken");
+            DateTime.TryParse(HttpContext.Session.GetString("Expired"), out var sessionEnd);
+            if (string.IsNullOrWhiteSpace(sessionToken) || sessionEnd < DateTime.Now)
+            {
+                HttpContext.Session.SetString("OriginUrl", Request.Path);
+                return Redirect("~/Login/Index");
+            }
+            else
+            {
+                return View();
+            }
         }
 
         // GET: Reports

@@ -46,6 +46,7 @@ namespace mvc_webapp.Controllers
             return View();
         }
 
+        [ResponseCache(Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Login(Login user)
         {
             var _tokenProvider = new TokenProvider(_context);
@@ -65,6 +66,7 @@ namespace mvc_webapp.Controllers
         }
 
         [HttpPost]
+        [ResponseCache(Location = ResponseCacheLocation.None, NoStore = true)]
         public JsonResult Logout([FromBody]AuthenticationBody authenticationBody)
         {
             var _tokenProvider = new TokenProvider(_context);

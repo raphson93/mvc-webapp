@@ -122,6 +122,7 @@ namespace mvc_webapp
         }
 
         [HttpPost]
+        [ResponseCache(Location = ResponseCacheLocation.None, NoStore = true)]
         public string LogoutUser(string JsonLocalStorageObj)
         {
             var dbUser = _context.Login.FirstOrDefault(x => x.Username == JsonLocalStorageObj);

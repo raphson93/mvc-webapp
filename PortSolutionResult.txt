@@ -38,6 +38,8 @@ Microsoft.AspNetCore.Hosting
 Microsoft.AspNetCore.Authentication
 Microsoft.IdentityModel
 Microsoft.Extensions.DependencyInjection
+Microsoft.AspNetCore.DataProtection
+System.IO
 Microsoft.IdentityModel.Tokens
 Microsoft.AspNetCore.Builder
 System.IdentityModel
@@ -78,6 +80,10 @@ Target Versions:
 ---------------------------
 netcoreapp3.1
 ---------------------------
+Source Versions:
+---------------------------
+net48
+---------------------------
 Upgrade packages:
 ---------------------------
 ---------------------------
@@ -91,6 +97,10 @@ Showing results for: C:\Users\Vincent\source\repos\others\mvc-webapp-login\mvc-w
 Target Versions:
 ---------------------------
 netcoreapp3.1
+---------------------------
+Source Versions:
+---------------------------
+net48
 ---------------------------
 Upgrade packages:
 ---------------------------
